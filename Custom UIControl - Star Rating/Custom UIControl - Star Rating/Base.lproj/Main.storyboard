@@ -34,7 +34,9 @@
                         <subviews>
                             <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUc-fi-0Rh" customClass="CustomControl" customModule="Custom_UIControl___Star_Rating" customModuleProvider="target">
                                 <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="updateRating:" destination="BYZ-38-t0r" eventType="valueChanged" id="YdP-cj-eSP"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -45,9 +47,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="GFZ-rb-r1r"/>
-                    <connections>
-                        <outlet property="updateRating" destination="eUc-fi-0Rh" id="qXj-qj-XEm"/>
-                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-649" y="142"/>
