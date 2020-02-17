@@ -16,9 +16,12 @@ class CustomControl: UIControl {
     var value: Int = 1
     
     private let componentDimension: CGFloat = 40.00
-    private let componentCount = 5
-    private let componentActiveColor = UIColor.black
-    private let componentInactiveColor = UIColor.gray
+    private var componentCount = 5
+    private let componentActiveColor = "★"
+    private let componentInactiveColor = "☆"
+    
+    //Initialize array of labels/stars
+    var labels: [UILabel] = []
     
     
     required init?(coder aCoder: NSCoder) {
@@ -30,8 +33,6 @@ class CustomControl: UIControl {
     
     func setup()  {
         
-        //Initialize array of labels/stars
-        var labels: [UILabel] = []
         
         //Loop to append the 5 star labels
         for i in 1...5{
@@ -41,22 +42,25 @@ class CustomControl: UIControl {
             myLabel.tag = i
             myLabel.frame.size.width = componentDimension
             myLabel.frame.size.height = componentDimension
-            myLabel.text = "☆"
+            myLabel.text = componentInactiveColor
             myLabel.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
             myLabel.textAlignment = .center
-            myLabel.textColor = componentInactiveColor
             
+            myLabel.textColor = .gray
+            
+    
             //Add to array
             labels.append(myLabel)
 
         }
         
+       
         //Create row
         let hStack = UIStackView(arrangedSubviews: labels)
         hStack.axis = .horizontal
         hStack.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(hStack)
-        
+
         //constraints to center the hStack
         hStack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         hStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -72,9 +76,27 @@ class CustomControl: UIControl {
       return CGSize(width: width, height: componentDimension)
     }
     
+    
+    //MARK: - Update Value method
+    
     func updateValue(at touch: UITouch){
         
+        let location = touch.location(in: self)
+ 
+        
+        for label in labels{
+         
+            if label.frame.contains(location){
+                value = label.tag
+                label.text = componentActiveColor
+                sendActions(for: .valueChanged)
+            }
+        }
+        
     }
+    
+    
+    
     
     //MARK: - Tracking
     
