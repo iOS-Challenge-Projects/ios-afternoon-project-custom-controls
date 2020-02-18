@@ -13,23 +13,21 @@ class ViewController: UIViewController {
    
     var value = 1
     
+    
+    @IBAction func updateRating(_ ratingControl: CustomControl) {
+        
+        value = ratingControl.value + 1
+        self.title = "User Rating: \(value) \(value > 1 ? "Stars" : "Star")"
+    
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.title = "User Rating: \(value) \(value > 1 ? "Stars" : "Star")"
         
     }
-
-
-    
-    
-    @IBAction func updateRating(_ ratingControl: CustomControl) {
-        
-        value = ratingControl.value
-        
-        print(value)
-    }
-    
     
     
 }

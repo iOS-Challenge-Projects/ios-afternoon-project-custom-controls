@@ -122,18 +122,24 @@ class CustomControl: UIControl {
         
         let touchPoint = touch.location(in: self)
         
-        for label in labels{
-            if label.frame.contains(touchPoint) && label.tag != value{
+        for label in labels {
+            
+            if label.frame.contains(touchPoint) {
+                
                 value = label.tag
-                label.text = componentActiveColor
+                //Send action to update title value
                 sendActions(for: .valueChanged)
                 
-                //Activate all stars up to the current value
-                for i in 0...label.tag{
-                    labels[i].text = componentActiveColor
+                for label in labels {
+                    if label.tag <= value {
+                        label.text = componentActiveColor
+                    } else{
+                        label.text = componentInactiveColor
+                    }
                 }
             }
         }
+        
         
     }
     
