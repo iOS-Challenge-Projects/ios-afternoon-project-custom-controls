@@ -17,8 +17,8 @@ class CustomControl: UIControl {
     
     private let componentDimension: CGFloat = 40
     private var componentCount = 5
-    private let componentActiveColor = "★"
-    private let componentInactiveColor = "☆"
+    private let componentActiveEmoji = "★"
+    private let componentInactiveEmoji = "☆"
     //Initialize array of labels/stars
     private var labels = [UILabel]()
     let componentSpaceInterval: CGFloat = 8
@@ -43,7 +43,8 @@ class CustomControl: UIControl {
             let myLabel =  UILabel(frame: CGRect(x: offset,y: 0, width: componentDimension, height: componentDimension))
             
             myLabel.tag = i
-            myLabel.text = myLabel.tag == 0 ? componentActiveColor : componentInactiveColor
+            myLabel.text = myLabel.tag == 0 ? componentActiveEmoji : componentInactiveEmoji
+            myLabel.textColor = myLabel.tag == 0 ? .gray : .purple 
             myLabel.font = .boldSystemFont(ofSize: 32)
             myLabel.textAlignment = .center
             myLabel.textColor = .gray
@@ -132,9 +133,12 @@ class CustomControl: UIControl {
                 
                 for label in labels {
                     if label.tag <= value {
-                        label.text = componentActiveColor
+                        performFlare()
+                        label.text = componentActiveEmoji
+                        label.textColor = .purple
                     } else{
-                        label.text = componentInactiveColor
+                        label.text = componentInactiveEmoji
+                         label.textColor = .gray
                     }
                 }
             }
@@ -143,4 +147,16 @@ class CustomControl: UIControl {
         
     }
     
+}
+
+extension UIView {
+  // "Flare view" animation sequence
+  func performFlare() {
+    func flare()   { transform = CGAffineTransform(scaleX: 1.6, y: 1.6) }
+    func unflare() { transform = .identity }
+    
+    UIView.animate(withDuration: 0.3,
+                   animations: { flare() },
+                   completion: { _ in UIView.animate(withDuration: 0.1) { unflare() }})
+  }
 }

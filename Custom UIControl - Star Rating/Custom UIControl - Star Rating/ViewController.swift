@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBAction func updateRating(_ ratingControl: CustomControl) {
         
         value = ratingControl.value + 1
-        self.title = "User Rating: \(value) \(value > 1 ? "Stars" : "Star")"
+        self.title = updateTitle()
     
     }
     
@@ -25,8 +25,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.title = "User Rating: \(value) \(value > 1 ? "Stars" : "Star")"
         
+        self.title = updateTitle()
+    }
+    
+    func updateTitle() -> String{
+        return "User Rating: \(value) \(value > 1 ? "Stars" : "Star")"
     }
     
     
