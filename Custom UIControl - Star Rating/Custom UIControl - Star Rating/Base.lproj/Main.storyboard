@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CIf-ke-wKA"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="zLn-rK-vKq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nuC-ue-h5a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -26,7 +26,6 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Custom_UIControl___Star_Rating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -35,7 +34,7 @@
                             <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUc-fi-0Rh" customClass="CustomControl" customModule="Custom_UIControl___Star_Rating" customModuleProvider="target">
                                 <rect key="frame" x="87" y="384" width="240" height="128"/>
                                 <connections>
-                                    <action selector="updateRating:" destination="BYZ-38-t0r" eventType="valueChanged" id="YdP-cj-eSP"/>
+                                    <action selector="updateRating:" destination="BYZ-38-t0r" eventType="valueChanged" id="rTQ-gO-fgZ"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -48,6 +47,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="GFZ-rb-r1r"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-649" y="142"/>
         </scene>

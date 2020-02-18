@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     @IBAction func updateRating(_ ratingControl: CustomControl) {
         
         value = ratingControl.value
+        
+        print(value)
     }
     
     
